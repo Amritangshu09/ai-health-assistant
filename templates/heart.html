@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <a href="/">← Back to Home</a>
+        <h1>Heart Disease Prediction</h1>
+
+        <form method="POST" action="/predict">
+            <input type="number" name="age" placeholder="Age" required><br>
+            <input type="number" name="sex" placeholder="Sex (1 = Male, 0 = Female)" required><br>
+            <input type="number" name="cp" placeholder="Chest Pain Type (0-3)" required><br>
+            <input type="number" name="trestbps" placeholder="Resting BP" required><br>
+            <input type="number" name="chol" placeholder="Cholesterol" required><br>
+            <input type="number" name="fbs" placeholder="Fasting Blood Sugar > 120 (1 = Yes, 0 = No)" required><br>
+            <input type="number" name="restecg" placeholder="Resting ECG (0-2)" required><br>
+            <input type="number" name="thalach" placeholder="Max Heart Rate Achieved" required><br>
+            <input type="number" name="exang" placeholder="Exercise Induced Angina (1 = Yes, 0 = No)" required><br>
+            <input type="number" name="oldpeak" placeholder="Oldpeak (ST depression)" step="any" required><br>
+            <input type="number" name="slope" placeholder="Slope (0-2)" required><br>
+            <input type="number" name="ca" placeholder="CA (Number of major vessels 0-4)" required><br>
+            <input type="number" name="thal" placeholder="Thal (1 = Normal, 2 = Fixed, 3 = Reversible)" required><br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>

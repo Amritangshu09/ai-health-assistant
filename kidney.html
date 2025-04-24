@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kidney Disease Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Kidney Disease Prediction</h2>
+    <form method="POST" action="/predict_kidney">
+        <input type="number" step="any" name="age" placeholder="Age" required><br>
+        <input type="number" step="any" name="bp" placeholder="Blood Pressure" required><br>
+        <input type="number" step="any" name="bgr" placeholder="Blood Glucose Random" required><br>
+        <input type="number" step="any" name="bu" placeholder="Blood Urea" required><br>
+        <input type="number" step="any" name="sc" placeholder="Serum Creatinine" required><br>
+        <input type="number" step="any" name="sod" placeholder="Sodium" required><br>
+        <input type="number" step="any" name="pot" placeholder="Potassium" required><br>
+        <input type="number" step="any" name="hemo" placeholder="Hemoglobin" required><br>
+        <input type="number" step="any" name="pcv" placeholder="Packed Cell Volume" required><br>
+        <button type="submit">Predict</button>
+    </form>
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>

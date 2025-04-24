@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parkinson’s Disease Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Parkinson’s Disease Prediction</h2>
+    <form method="POST" action="/predict_parkinsons">
+        <input type="number" step="any" name="MDVP:Fo(Hz)" placeholder="MDVP:Fo(Hz)" required><br>
+        <input type="number" step="any" name="MDVP:Fhi(Hz)" placeholder="MDVP:Fhi(Hz)" required><br>
+        <input type="number" step="any" name="MDVP:Flo(Hz)" placeholder="MDVP:Flo(Hz)" required><br>
+        <input type="number" step="any" name="MDVP:Jitter(%)" placeholder="MDVP:Jitter(%)" required><br>
+        <input type="number" step="any" name="MDVP:RAP" placeholder="MDVP:RAP" required><br>
+        <input type="number" step="any" name="MDVP:PPQ" placeholder="MDVP:PPQ" required><br>
+        <input type="number" step="any" name="Jitter:DDP" placeholder="Jitter:DDP" required><br>
+        <input type="number" step="any" name="MDVP:Shimmer" placeholder="MDVP:Shimmer" required><br>
+        <input type="number" step="any" name="Shimmer:APQ3" placeholder="Shimmer:APQ3" required><br>
+        <input type="number" step="any" name="Shimmer:DDA" placeholder="Shimmer:DDA" required><br>
+        <button type="submit">Predict</button>
+    </form>
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>

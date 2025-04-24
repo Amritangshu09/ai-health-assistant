@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Heart Disease Predictor</title>
+    <title>AI Health Assistant</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <a href="/">Heart Disease</a> | 
-    <a href="/diabetes">Diabetes</a> |
-    <a href="/liver">Liver</a> |
-    <a href="/kidney">Kidney</a> |
-    <a href="/lung">Lung Cancer</a> |
-    <a href="/parkinsons">Parkinson's</a> |
+    <div class="container">
+        <img src="/static/hospital_logo.png" alt="Hospital Logo" class="logo">
+        <h1>AI Health Assistant</h1>
+        <p>Select the type of prediction you'd like to perform:</p>
 
-    <h2>Heart Disease Prediction</h2>
-    <form method="POST" action="/predict">
-        <input type="number" name="age" placeholder="Age" required><br>
-        <input type="number" name="sex" placeholder="Sex (1=Male, 0=Female)" required><br>
-        <input type="number" name="cp" placeholder="Chest Pain Type (0-3)" required><br>
-        <input type="number" name="trestbps" placeholder="Resting BP" required><br>
-        <input type="number" name="chol" placeholder="Cholesterol" required><br>
-        <input type="number" name="fbs" placeholder="Fasting Blood Sugar > 120 (1/0)" required><br>
-        <input type="number" name="restecg" placeholder="Resting ECG (0-2)" required><br>
-        <input type="number" name="thalach" placeholder="Max Heart Rate" required><br>
-        <input type="number" name="exang" placeholder="Exercise Induced Angina (1/0)" required><br>
-        <input type="number" name="oldpeak" placeholder="Oldpeak" step="any" required><br>
-        <input type="number" name="slope" placeholder="Slope (0-2)" required><br>
-        <input type="number" name="ca" placeholder="CA (0-4)" required><br>
-        <input type="number" name="thal" placeholder="Thal (1=Normal, 2=Fixed, 3=Reversible)" required><br>
-        <button type="submit">Predict</button>
-    </form>
-    <h3>{{ prediction_text }}</h3>
+        <form id="diseaseForm" action="#" method="get">
+            <select id="diseaseSelect" name="disease" required>
+                <option value="">-- Select a Disease --</option>
+                <option value="/heart">&#10084; Heart Disease</option>
+                <option value="/diabetes"><i class="fas fa-syringe"></i> Diabetes</option>
+                <option value="/liver"><i class="fas fa-flask"></i> Liver Disease</option>
+                <option value="/kidney"><i class="fas fa-tint"></i> Kidney Disease</option>
+                <option value="/lung"><i class="fas fa-lungs"></i> Lung Cancer</option>
+                <option value="/parkinsons"><i class="fas fa-brain"></i> Parkinson’s Disease</option>
+            </select>
+            <button type="submit">Predict</button>
+        </form>
+
+        <a href="/login" class="login-btn">Staff Login</a>
+    </div>
+
+    <!-- Chatbot placeholder -->
+    <div id="chatbot">
+        <p>Need help? Chat with our AI Assistant.</p>
+        <!-- You’ll plug in chatbot iframe or Dialogflow later -->
+    </div>
+
+    <script>
+        document.getElementById("diseaseForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const selected = document.getElementById("diseaseSelect").value;
+            if (selected) {
+                window.location.href = selected;
+            }
+        });
+    </script>
 </body>
 </html>
